@@ -1,6 +1,6 @@
 const express = require('express');
-const fs = require('fs');
 const server = express();
+const fs = require('fs');
 
 
 server.use(express.static('public'));

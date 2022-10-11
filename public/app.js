@@ -8,6 +8,8 @@ build = () => {
 
 addContact = () => {
 
+    var ulList = document.getElementById('contactUl');
+
     const name = document.getElementById('name').value;
     const phonenumber = document.getElementById('phonenumber').value;
     const email = document.getElementById('email').value;
@@ -16,18 +18,25 @@ addContact = () => {
 
     contacts.push(contactOrder);
 
-    var ulList = document.getElementById('contactUl');
-    ulList.innerHTML = '';
 
+    var listElement = document.createElement('li');
 
-    contacts.forEach(contact => {
+    listElement.innerHTML = (`${name} - ${phonenumber} - ${email}`);
 
-        var listElement = document.createElement('li');
+    ulList.appendChild(listElement);
 
-        listElement.innerHTML = (`${contact.Name} - ${contact.Phonenumber} - ${contact.Email}`);
+    
+    document.getElementById('name').value = '';
+    document.getElementById('phonenumber').value = '';
+    document.getElementById('email').value = '';
 
-        ulList.appendChild(listElement);
+    countContacts();
 
-    });
+}
+
+countContacts = () => {
+
+    var contactAmount = document.getElementById('contactAmount');
+    contactAmount.innerHTML = (`There are: ${contacts.length} contacts in the list`)
 
 }
