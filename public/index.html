@@ -10,15 +10,26 @@
 </head>
 <body onload="build()">
 
-    <div id="">
+    <div>
 
         <h1>Contacts Manager</h1>
-        <input type="text" placeholder="Name" name="Name" id="name">
-        <input type="number" placeholder="Phonenumber" name="Phonenumber" id="phonenumber">
-        <input type="email" placeholder="Email" name="Email" id="email">
-        <button onclick="addContact()">+</button>
+
+        <form>
+            <input type="text" placeholder="Name" name="Name" id="name">
+            <input type="number" placeholder="Phonenumber" name="Phonenumber" id="phonenumber">
+            <input type="email" placeholder="Email" name="Email" id="email">
+            <button onclick="addContact()">+</button>
+        </form>
 
     </div>
     
+    <div>
+
+        <ul id="contactUl">
+
+        </ul>
+
+    </div>
+
 </body>
 </html>

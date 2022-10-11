@@ -2,16 +2,7 @@ var contacts = [];
 
 build = () => {
 
-    /*const XHR = new XMLHttpRequest();
 
-    XHR.onload = () => {
-
-
-        
-    }
-
-    XHR.open();
-    XHR.send(); */
 
 }
 
@@ -21,11 +12,22 @@ addContact = () => {
     const phonenumber = document.getElementById('phonenumber').value;
     const email = document.getElementById('email').value;
 
-    var contactOrder = {name: name, phonenumber: phonenumber, email: email};
+    var contactOrder = {Name: name, Phonenumber: phonenumber, Email: email};
 
     contacts.push(contactOrder);
 
-    console.log(contactOrder);
+    var ulList = document.getElementById('contactUl');
+    ulList.innerHTML = '';
 
+
+    contacts.forEach(contact => {
+
+        var listElement = document.createElement('li');
+
+        listElement.innerHTML = (`${contact.Name} - ${contact.Phonenumber} - ${contact.Email}`);
+
+        ulList.appendChild(listElement);
+
+    });
 
 }
