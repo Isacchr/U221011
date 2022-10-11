@@ -1,9 +1,11 @@
 const express = require('express');
 const server = express();
 const fs = require('fs');
+const bodyParser = require('body-parser');
 
 
 server.use(express.static('public'));
+server.use(bodyParser.urlencoded({ extended: true}));
 
 server.get('/', (req, res) => {
 
@@ -17,5 +19,20 @@ server.get('/', (req, res) => {
 
     
 });
+
+server.post('/contacts', (req, res) => {
+
+    var contactsJson = req.body;
+
+    console.log(contactsJson);
+    console.log(contacts);
+
+    /*fs.writeFile("data.json", contactsJson, 'utf8', function (err) {
+        
+        res.end();
+        
+    })*/
+
+})
 
 server.listen(8080);
