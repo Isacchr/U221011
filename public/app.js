@@ -19,9 +19,9 @@ addContact = () => {
 
     const name = document.getElementById('name').value;
     const phonenumber = document.getElementById('phonenumber').value;
-    const c = document.getElementById('email').value;
+    const email = document.getElementById('email').value;
 
-    var contactOrder = {name: name, phonenumber: phonenumber, email: phonenumber};
+    var contactOrder = {name: name, phonenumber: phonenumber, email: email};
 
     contacts.push(contactOrder);
 
