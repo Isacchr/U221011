@@ -6,9 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="app.js"></script>
     <link rel="stylesheet" href="main.css">
-    <title>Home</title>
+    <title>App</title>
 </head>
-<body>
+<body onload="build()">
+
+    <div id="">
+
+        <h1>Contacts Manager</h1>
+        <input type="text" placeholder="Name" name="Name" id="name">
+        <input type="number" placeholder="Phonenumber" name="Phonenumber" id="phonenumber">
+        <input type="email" placeholder="Email" name="Email" id="email">
+        <button onclick="addContact()">+</button>
+
+    </div>
     
 </body>
 </html>
