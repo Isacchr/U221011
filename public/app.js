@@ -2,13 +2,11 @@ var contacts = [];
 
 build = () => {
 
-
+    countContacts();
 
 }
 
 addContact = () => {
-
-    var ulList = document.getElementById('contactUl');
 
     const name = document.getElementById('name').value;
     const phonenumber = document.getElementById('phonenumber').value;
@@ -19,24 +17,40 @@ addContact = () => {
     contacts.push(contactOrder);
 
 
+    var ulList = document.getElementById('contactUl');
     var listElement = document.createElement('li');
+    var removeBtn = document.createElement('button');
+    removeBtn.setAttribute('type', 'button');
+    removeBtn.setAttribute('id', 'removeBtn');
+    removeBtn.innerHTML = 'remove';
+    removeBtn.onclick = () => {
+        listElement.remove();
+        contacts.pop(contacts);
+        countContacts();
+    }
 
-    listElement.innerHTML = (`${name} - ${phonenumber} - ${email}`);
+    var editBtn = document.createElement('button');
+    editBtn.setAttribute('type', 'button');
+    editBtn.setAttribute('id', 'editBtn');
+    editBtn.innerHTML = 'edit';
 
+
+    listElement.innerHTML = (`${name} - ${phonenumber} - ${email} `);
     ulList.appendChild(listElement);
+    listElement.appendChild(removeBtn);
+    listElement.appendChild(editBtn);
 
-    
+
     document.getElementById('name').value = '';
     document.getElementById('phonenumber').value = '';
     document.getElementById('email').value = '';
 
     countContacts();
-
 }
 
 countContacts = () => {
 
     var contactAmount = document.getElementById('contactAmount');
-    contactAmount.innerHTML = (`There are: ${contacts.length} contacts in the list`)
+    contactAmount.innerHTML = `There are: ${contacts.length} contacts in the list`;
 
 }
